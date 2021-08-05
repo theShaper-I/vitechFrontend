@@ -10,7 +10,6 @@ const AddNewPatient = () => {
 
     const patientService = new PatientService();
 
-    // TODO зробити так щоб паціенти відображались на сайдбарі без оновлення
     const savePatientButtonPush = async () => {
         patientService.savePatient(patients);
         history.push(`/patient`);

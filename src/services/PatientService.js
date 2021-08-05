@@ -13,7 +13,8 @@ export default class PatientService {
             gender: patient.gender,
             country: patient.country,
             state: patient.state,
-            city: patient.city
+            city: patient.city,
+            patientComments: []
             }).catch((error) => {
                 console.error(error);
             }).then(() => {
@@ -54,8 +55,8 @@ export default class PatientService {
             });
     }
 
-    saveComment(commentForDatabase) {
-        axios.post(`${url}/patientLoad/comment.json`, commentForDatabase)
+    saveComment(commentForDatabase, patientID) {
+        axios.post(`${url}/patientLoad/${patientID}/patientComments.json`, commentForDatabase)
             .catch((error) => {
                 console.error(error);
             })
