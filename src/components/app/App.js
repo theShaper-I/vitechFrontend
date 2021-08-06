@@ -11,7 +11,6 @@ function App() {
     const [patients, setPatients] = useState([]); // State for adding patients
     const [sidebarPatients, setSidebarPatients] = useState([]); // State for adding patients to sidebar
     const [selectedPatient, setSelectedPatient] = useState([]); // State for show patients info in PatientInfo.jsx
-    const [patientComments, setPatientComments] = useState([]);
 
     const getArrayOfPatients = async (patientsPromise) => {
         let arr = [];
@@ -50,7 +49,7 @@ function App() {
     return (
       <div className='app'>
         <PatientContext.Provider
-        value={{patients, setPatients, sidebarPatients, setSidebarPatients, selectedPatient, setSelectedPatient, patientComments, setPatientComments}}>
+        value={{ patients, setPatients, sidebarPatients, setSidebarPatients, selectedPatient, setSelectedPatient }}>
               <PatientSidebar />
               <Content />
         </PatientContext.Provider>

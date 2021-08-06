@@ -6,9 +6,9 @@ const moment = require('moment');
 
 
 const PatientInfo = () => {
+    const [comment, setComment] = useState('');
     const { selectedPatient } = useContext(PatientContext);
     const moment = require('moment');
-    const [comment, setComment] = useState('');
 
     const commentInput = React.createRef();
     const patientService = new PatientService();

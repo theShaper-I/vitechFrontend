@@ -4,7 +4,6 @@ import PatientInfo from "../patientInfo/PatientInfo";
 import AddNewPatient from '../addNewPatient/AddNewPatient';
 import EditPatientInfo from '../editPatientInfo/EditPatient';
 import NotFound from '../notFound/NotFound';
-import PleaseAddPatient from "../pleaseAddPatient/PleaseAddPatient";
 
 const Content = () => {
     return (

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
+import { PatientContext } from "../app/App";
 import PatientService from "../../services/PatientService";
 import PatientHeader from '../patientHeader/PatientHeader';
-import {PatientContext} from "../app/App";
 
 const AddNewPatient = () => {
     const { patients, setPatients } = useContext(PatientContext);

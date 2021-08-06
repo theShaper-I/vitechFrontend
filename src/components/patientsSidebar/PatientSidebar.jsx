@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import {PatientContext} from "../app/App";
-import { url } from "../../services/PatientService";
 
 const PatientSidebar = () => {
     const { sidebarPatients, setSidebarPatients, setSelectedPatient } = useContext(PatientContext);

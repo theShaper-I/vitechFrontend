@@ -4,7 +4,7 @@ import { PatientContext } from '../app/App';
 import PatientService from '../../services/PatientService';
 
 const PatientHeader = () => {
-    let { selectedPatient, setSidebarPatients, sidebarPatients } = useContext(PatientContext);
+    let { selectedPatient } = useContext(PatientContext);
     const history = useHistory();
 
     const patientService = new PatientService;
