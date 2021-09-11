@@ -16,9 +16,10 @@ function App() {
         let arr = [];
         await patientsPromise.then((response) => {
             const patients = response.data;
+
             for (let patientID in patients) {
                 arr.push({
-                    id: patientID,
+                    id: patients[patientID].id,
                     firstname: patients[patientID].firstname,
                     lastname: patients[patientID].lastname,
                     birth: patients[patientID].birth,
@@ -31,7 +32,6 @@ function App() {
                 });
             }
         })
-
         return arr;
     }
 
@@ -40,7 +40,7 @@ function App() {
     }
 
     useEffect(() => {
-        getArrayOfPatients(getPromisePatients(`${url}/patientLoad.json`))
+        getArrayOfPatients(getPromisePatients(`${url}/patients`))
             .then((result) => {
                 setSidebarPatients(result)
             })

@@ -11,7 +11,7 @@ const EditPatient = () => {
     const patientService = new PatientService();
 
     const editPatientButtonPush = async () => {
-        patientService.editPatient(selectedPatient, selectedPatient.id)
+        patientService.editPatient(selectedPatient)
         const patients = sidebarPatients.map(e => {
             if (e.id === selectedPatient.id) {
                 return selectedPatient;

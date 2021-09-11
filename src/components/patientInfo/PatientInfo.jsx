@@ -15,8 +15,9 @@ const PatientInfo = () => {
 
     const addPatientComment = (e) => {
         const date = moment();
-        const newCommentForDatabase = { comment: commentInput.current.value, patient_id: selectedPatient.id, date: date };
-        patientService.saveComment(newCommentForDatabase, selectedPatient.id);
+        const commentText = commentInput.current.value;
+        const commentData = date.format('ll');
+        patientService.saveComment(selectedPatient.id, commentText, commentData);
         e.preventDefault();
         setComment('');
     }
@@ -26,6 +27,7 @@ const PatientInfo = () => {
     const getArrayOfComments = () => {
         let arr = [];
         const selectedPatientComments = selectedPatient.patientComments
+        console.log(selectedPatientComments)
 
         for (let commentID in selectedPatientComments) {
             arr.push({

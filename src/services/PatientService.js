@@ -1,11 +1,12 @@
 import axios from 'axios';
 
-export const url = 'https://vitechtask-default-rtdb.europe-west1.firebasedatabase.app';
+export const url = 'http://localhost:8080/api';
 
 export default class PatientService {
 
+    // Working!
     savePatient(patient) {
-        axios.post(`${url}/patientLoad.json`, {
+        axios.post(`${url}/patients`, {
             firstname: patient.firstname,
             lastname: patient.lastname,
             age: patient.age,
@@ -13,8 +14,7 @@ export default class PatientService {
             gender: patient.gender,
             country: patient.country,
             state: patient.state,
-            city: patient.city,
-            patientComments: []
+            city: patient.city
             }).catch((error) => {
                 console.error(error);
             }).then(() => {
@@ -22,8 +22,9 @@ export default class PatientService {
             });
     }
 
+    // Working!
     getPatients() {
-        axios.get(`${url}/patientLoad.json`)
+        axios.get(`${url}/patients`)
             .then((response) => {
                 const patients = response.data;
             })
@@ -35,8 +36,8 @@ export default class PatientService {
             });
     }
 
-    editPatient(editedPatientInfo, patientID) {
-        axios.patch(`${url}/patientLoad/${patientID}.json`, editedPatientInfo)
+    editPatient(editedPatientInfo) {
+        axios.put(`${url}/patients`, editedPatientInfo)
             .catch((error) => {
                 console.error(error);
             })
@@ -46,7 +47,7 @@ export default class PatientService {
     }
 
     deletePatient(patientID) {
-        axios.delete(`${url}/patientLoad/${patientID}.json`)
+        axios.delete(`${url}/patients/${patientID}`)
             .catch((error) => {
                 console.error(error);
             })
@@ -55,8 +56,8 @@ export default class PatientService {
             });
     }
 
-    saveComment(commentForDatabase, patientID) {
-        axios.post(`${url}/patientLoad/${patientID}/patientComments.json`, commentForDatabase)
+    saveComment(patientID, commentText, commentData) {
+        axios.get(`${url}/patients/comments/${patientID}/${commentText}/${commentData}`)
             .catch((error) => {
                 console.error(error);
             })
