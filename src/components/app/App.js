@@ -28,10 +28,11 @@ function App() {
                     country: patients[patientID].country,
                     state: patients[patientID].state,
                     city: patients[patientID].city,
-                    patientComments: patients[patientID].patientComments
+                    commentsList: patients[patientID].commentsList
                 });
             }
         })
+
         return arr;
     }
 

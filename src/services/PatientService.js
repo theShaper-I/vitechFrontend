@@ -4,7 +4,6 @@ export const url = 'http://localhost:8080/api';
 
 export default class PatientService {
 
-    // Working!
     savePatient(patient) {
         axios.post(`${url}/patients`, {
             firstname: patient.firstname,
@@ -22,7 +21,6 @@ export default class PatientService {
             });
     }
 
-    // Working!
     getPatients() {
         axios.get(`${url}/patients`)
             .then((response) => {
@@ -65,4 +63,6 @@ export default class PatientService {
                 // always executed
             });
     }
+
+
 }

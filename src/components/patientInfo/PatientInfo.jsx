@@ -26,14 +26,15 @@ const PatientInfo = () => {
 
     const getArrayOfComments = () => {
         let arr = [];
-        const selectedPatientComments = selectedPatient.patientComments
+        const selectedPatientComments = selectedPatient.commentsList
+
         console.log(selectedPatientComments)
 
         for (let commentID in selectedPatientComments) {
             arr.push({
                 id: commentID,
-                patientComments: selectedPatientComments[commentID].comment,
-                data: selectedPatientComments[commentID].date
+                commentText: selectedPatientComments[commentID].commentText,
+                data: selectedPatientComments[commentID].data
             });
         }
 
@@ -82,13 +83,13 @@ const PatientInfo = () => {
                             {
                                 getArrayOfComments().map(comment => {
                                     return(
-                                        <li>
+                                        <li key={comment.id} id={comment.id}>
                                             <div className='new-comment'>
                                                 <div>
-                                                    <b>{moment(comment.date).format('ll')}</b>
+                                                    <b>{comment.data}</b>
                                                 </div>
                                                 <div>
-                                                    {comment.patientComments}
+                                                    {comment.commentText}
                                                 </div>
                                             </div>
                                         </li>
