@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const url = 'http://localhost:8080/api';
+export const url = 'https://vitechbackend.herokuapp.com/api';
 
 export default class PatientService {
 
